@@ -52,20 +52,8 @@ public class Movable : MonoBehaviour
         movementDirection = newDirection;
     }
 
-    private void OnBecameInvisible()
+    public Direction GetDirection()
     {
-        AppearOnTheOtherSide();
-
-    }
-
-    private void AppearOnTheOtherSide()
-    {
-        Vector3 objectPosition = gameObject.transform.position;
-        Vector3 objectPositionToScreen = Camera.main.WorldToScreenPoint(objectPosition);
-        if(objectPositionToScreen.x < 0)
-        {
-            objectPosition.x += 10;
-            gameObject.transform.position = objectPosition;
-        }
+        return movementDirection;
     }
 }
