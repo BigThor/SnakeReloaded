@@ -13,7 +13,7 @@ public class Movable : MonoBehaviour
     }
 
     private Direction movementDirection;
-    private float secondsBetweenMoves = 0.7f;
+    [SerializeField] private float secondsBetweenMoves = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +62,6 @@ public class Movable : MonoBehaviour
     {
         Vector3 objectPosition = gameObject.transform.position;
         Vector3 objectPositionToScreen = Camera.main.WorldToScreenPoint(objectPosition);
-
         if(objectPositionToScreen.x < 0)
         {
             objectPosition.x += 10;
