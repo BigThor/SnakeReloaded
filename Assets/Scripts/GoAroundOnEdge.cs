@@ -29,7 +29,6 @@ public class GoAroundOnEdge : MonoBehaviour
     private void AppearOnOppositeSide(Vector3 size)
     {
         Vector2 newPosition = gameObject.transform.position;
-        Debug.Log(newPosition);
 
         Movable.Direction currentDirection = movable.GetDirection();
         if(currentDirection == Movable.Direction.Right)
