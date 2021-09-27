@@ -5,27 +5,44 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Movable movable;
-    [SerializeField] List<GameObject> bodyparts;
-
     [SerializeField] private GameObject bodyPrefab;
+
+    [SerializeField] List<GameObject> bodyparts;
     [SerializeField] private int initialSize = 3;
+
+    [SerializeField] private float secondsBetweenMoves = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
         movable = gameObject.GetComponent<Movable>();
-        movable.delegateAfter = UpdateBodyDirection;
         bodyparts = new List<GameObject>();
         for(int i = 0; i < initialSize; i++)
         {
             AddBodypart();
         }
+
+        StartCoroutine(MoveBody());
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateDirectionOnInput();
+    }
+
+    private IEnumerator MoveBody()
+    {
+        yield return new WaitForSeconds(secondsBetweenMoves);
+
+        UpdateBodyDirection();
+        for (int bodypartIndex = bodyparts.Count - 1; bodypartIndex >= 0; bodypartIndex--)
+        {
+            bodyparts[bodypartIndex].GetComponent<Movable>().Move();
+        }
+        movable.Move();
+
+        StartCoroutine(MoveBody());
     }
 
     private void UpdateBodyDirection()

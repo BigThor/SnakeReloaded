@@ -395,7 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 2578654764326136668, guid: 667e317f03f409149980bc0451f2312f, type: 3}
     - target: {fileID: -7888056789361743799, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: initialSize
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7888056789361743799, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: secondsBetweenMoves
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5263778430529284477, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: m_Name

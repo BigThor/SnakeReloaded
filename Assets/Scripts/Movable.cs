@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Movable : MonoBehaviour
 {
-    public delegate void DelegateAfterMove ();
-    public DelegateAfterMove delegateAfter = null;
-
     public enum Direction
     {
         Right,
@@ -17,14 +14,13 @@ public class Movable : MonoBehaviour
 
     [SerializeField] private Direction movementDirection;
     [SerializeField] private Direction lastDirection;
-    [SerializeField] private float secondsBetweenMoves = 1f;
+    //[SerializeField] private float secondsBetweenMoves = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
         movementDirection = Direction.Right;
         lastDirection = Direction.Right;
-        StartCoroutine(Move());
     }
 
     // Update is called once per frame
@@ -33,18 +29,13 @@ public class Movable : MonoBehaviour
 
     }
 
-    private IEnumerator Move()
+
+    public void Move()
     {
-        yield return new WaitForSeconds(secondsBetweenMoves);
-
-        if (delegateAfter != null)
-            delegateAfter();
         lastDirection = movementDirection;
-
         Vector3 newPosition = GetNextPosition(gameObject.transform.position, movementDirection);
         gameObject.transform.position = newPosition;
 
-        StartCoroutine(Move());
     }
 
     public void ChangeDirection(Direction newDirection)
