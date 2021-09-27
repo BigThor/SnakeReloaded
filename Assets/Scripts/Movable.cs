@@ -35,6 +35,8 @@ public class Movable : MonoBehaviour
 
     private IEnumerator Move()
     {
+        yield return new WaitForSeconds(secondsBetweenMoves);
+
         if (delegateAfter != null)
             delegateAfter();
         lastDirection = movementDirection;
@@ -42,7 +44,6 @@ public class Movable : MonoBehaviour
         Vector3 newPosition = GetNextPosition(gameObject.transform.position, movementDirection);
         gameObject.transform.position = newPosition;
 
-        yield return new WaitForSeconds(secondsBetweenMoves);
         StartCoroutine(Move());
     }
 

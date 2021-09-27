@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void AddBodypart()
+    public void AddBodypart()
     {
         GameObject lastObject;
         if (bodyparts.Count == 0)
@@ -74,11 +74,14 @@ public class Player : MonoBehaviour
         {
             lastObject = bodyparts[bodyparts.Count - 1];
         }
+
         Vector3 lastPartPosition = lastObject.transform.position;
         Movable.Direction lastDirection = lastObject.transform.GetComponent<Movable>().GetDirection();
-        lastDirection = Movable.GetOppositeDirection(lastDirection);
-        Vector3 newPosition = Movable.GetNextPosition(lastPartPosition, lastDirection);
+        Movable.Direction oppositeDirection = Movable.GetOppositeDirection(lastDirection);
+        Vector3 newPosition = Movable.GetNextPosition(lastPartPosition, oppositeDirection);
 
-        bodyparts.Add(Instantiate(bodyPrefab, newPosition, Quaternion.Euler( Movable.GetEulerAngles(lastDirection))));
+        GameObject newBodyPart = Instantiate(bodyPrefab, newPosition, Quaternion.Euler(Movable.GetEulerAngles(oppositeDirection)));
+        bodyparts.Add(newBodyPart);
+        newBodyPart.GetComponent<Movable>().ChangeDirection(lastDirection);
     }
 }
