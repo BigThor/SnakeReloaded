@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     Movable movable;
     [SerializeField] private GameObject bodyPrefab;
 
-    [SerializeField] List<GameObject> bodyparts;
+    List<GameObject> bodyparts;
     [SerializeField] private int initialSize = 3;
 
     [SerializeField] private float secondsBetweenMoves = 1f;
+
+    [SerializeField] private ScoreCounter scoreCounter;
 
     // Start is called before the first frame update
     void Start()
     {
         movable = gameObject.GetComponent<Movable>();
+
         bodyparts = new List<GameObject>();
         for(int i = 0; i < initialSize; i++)
         {
@@ -30,6 +34,29 @@ public class Player : MonoBehaviour
     void Update()
     {
         UpdateDirectionOnInput();
+    }
+
+    private void UpdateDirectionOnInput()
+    {
+        float horizontalDirection = Input.GetAxis("Horizontal");
+        float verticalDirection = Input.GetAxis("Vertical");
+
+        if (horizontalDirection > 0)
+        {
+            movable.ChangeDirection(Movable.Direction.Right);
+        }
+        else if (horizontalDirection < 0)
+        {
+            movable.ChangeDirection(Movable.Direction.Left);
+        }
+        else if (verticalDirection > 0)
+        {
+            movable.ChangeDirection(Movable.Direction.Up);
+        }
+        else if (verticalDirection < 0)
+        {
+            movable.ChangeDirection(Movable.Direction.Down);
+        }
     }
 
     private IEnumerator MoveBody()
@@ -56,29 +83,6 @@ public class Player : MonoBehaviour
 
         if (bodyparts.Count != 0)
             bodyparts[0].GetComponent<Movable>().ChangeDirection(movable.GetLastDirection());
-    }
-
-    private void UpdateDirectionOnInput()
-    {
-        float horizontalDirection = Input.GetAxis("Horizontal");
-        float verticalDirection = Input.GetAxis("Vertical");
-
-        if (horizontalDirection > 0)
-        {
-            movable.ChangeDirection(Movable.Direction.Right);
-        }
-        else if (horizontalDirection < 0)
-        {
-            movable.ChangeDirection(Movable.Direction.Left);
-        }
-        else if (verticalDirection > 0)
-        {
-            movable.ChangeDirection(Movable.Direction.Up);
-        }
-        else if (verticalDirection < 0)
-        {
-            movable.ChangeDirection(Movable.Direction.Down);
-        }
     }
 
     public void AddBodypart()
@@ -110,6 +114,17 @@ public class Player : MonoBehaviour
             Die();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Eatable"))
+        {
+            AddBodypart();
+            if (scoreCounter != null)
+                scoreCounter.AddToScore(1);
+        }
+    }
+
 
     private void Die()
     {
