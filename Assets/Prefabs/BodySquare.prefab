@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementDirection: 0
   lastDirection: 0
-  secondsBetweenMoves: 0.3
 --- !u!114 &2578654764326136657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.96, y: 0.96}
   m_EdgeRadius: 0
 --- !u!50 &2578654764326136663
 Rigidbody2D:
@@ -149,7 +148,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 2578654764326136668}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

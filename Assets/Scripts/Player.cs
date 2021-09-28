@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -100,5 +101,18 @@ public class Player : MonoBehaviour
         GameObject newBodyPart = Instantiate(bodyPrefab, newPosition, Quaternion.Euler(Movable.GetEulerAngles(oppositeDirection)));
         bodyparts.Add(newBodyPart);
         newBodyPart.GetComponent<Movable>().ChangeDirection(lastDirection);
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag.Equals("Player"))
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
