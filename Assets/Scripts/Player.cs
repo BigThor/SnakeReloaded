@@ -16,10 +16,13 @@ public class Player : MonoBehaviour
 
     [SerializeField] private ScoreCounter scoreCounter;
 
+    AudioSource eatSound;
+
     // Start is called before the first frame update
     void Start()
     {
         movable = gameObject.GetComponent<Movable>();
+        eatSound = gameObject.GetComponent<AudioSource>();
 
         bodyparts = new List<GameObject>();
         for(int i = 0; i < initialSize; i++)
@@ -119,12 +122,17 @@ public class Player : MonoBehaviour
     {
         if (collision.tag.Equals("Eatable"))
         {
-            AddBodypart();
-            if (scoreCounter != null)
-                scoreCounter.AddToScore(1);
+            Eat();
         }
     }
 
+    private void Eat()
+    {
+        eatSound?.Play();
+        AddBodypart();
+        if (scoreCounter != null)
+            scoreCounter.AddToScore(1);
+    }
 
     private void Die()
     {
