@@ -14,13 +14,12 @@ public class Movable : MonoBehaviour
 
     [SerializeField] private Direction movementDirection;
     [SerializeField] private Direction lastDirection;
-    //[SerializeField] private float secondsBetweenMoves = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        movementDirection = Direction.Right;
-        lastDirection = Direction.Right;
+        lastDirection = movementDirection;
+        gameObject.transform.eulerAngles = GetEulerAngles(movementDirection);
     }
 
     // Update is called once per frame

@@ -273,7 +273,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d90cbf8e12f40f04ebfa4f029967c73a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c5349e3c0ce83f34a9488065acf21e6e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.35
   m_Pitch: 1
@@ -470,6 +470,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1502062931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502062934}
+  - component: {fileID: 1502062933}
+  - component: {fileID: 1502062932}
+  m_Layer: 0
+  m_Name: TrainSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1502062932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502062931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1226288b5ed67d42b6d7b3f95e228d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaToSpawn: {fileID: 1556626356}
+  objectToSpawn: {fileID: 664101361283382388, guid: 02eb3cc3c32f7db4a9ca7b180706b914, type: 3}
+  secondsBetweenSpawn: 6
+--- !u!114 &1502062933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502062931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801a0560c7a15e94d9bdba85b7f8cdc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1502062934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502062931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1529878372
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -808,6 +867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2146011491}
   - component: {fileID: 2146011490}
+  - component: {fileID: 2146011492}
   m_Layer: 0
   m_Name: FoodSpawner
   m_TagString: Untagged
@@ -827,9 +887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801a0560c7a15e94d9bdba85b7f8cdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaToSpawn: {fileID: 1556626356}
-  objectToSpawn: {fileID: 7716589459758076267, guid: d2d657344fdfbcc44957fa7624b24e85, type: 3}
-  secondsBetweenSpawn: 5
 --- !u!4 &2146011491
 Transform:
   m_ObjectHideFlags: 0
@@ -844,6 +901,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146011492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146011489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb20aaabb9323cd45b59d60d01b8ff2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaToSpawn: {fileID: 1556626356}
+  objectToSpawn: {fileID: 7716589459758076267, guid: d2d657344fdfbcc44957fa7624b24e85, type: 3}
+  secondsBetweenSpawn: 5
 --- !u!1001 &2553365131998652079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,7 +933,7 @@ PrefabInstance:
       objectReference: {fileID: 2578654764326136668, guid: 667e317f03f409149980bc0451f2312f, type: 3}
     - target: {fileID: -7888056789361743799, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: initialSize
-      value: 2
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -7888056789361743799, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: scoreCounter
@@ -881,7 +953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327819700602346410, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: m_Volume
-      value: 0.505
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6327819700602346410, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: m_audioClip
@@ -938,6 +1010,14 @@ PrefabInstance:
     - target: {fileID: 7057151654721260412, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: movementDirection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219530707361079318, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: secondsBetweenMoves
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
