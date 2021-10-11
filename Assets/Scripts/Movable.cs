@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Movable : MonoBehaviour
 {
+    [SerializeField] public UnityEvent callOnMove;
+    SpriteRenderer sprite;
+
     public enum Direction
     {
         Right,
@@ -18,43 +22,72 @@ public class Movable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = gameObject.GetComponent<SpriteRenderer>();
         lastDirection = movementDirection;
-        gameObject.transform.eulerAngles = GetEulerAngles(movementDirection);
+        UpdateRotation();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-
+        UpdateRotation();
     }
-
 
     public void Move()
     {
-        lastDirection = movementDirection;
         Vector3 newPosition = GetNextPosition(gameObject.transform.position, movementDirection);
         gameObject.transform.position = newPosition;
 
+        lastDirection = movementDirection;
+        UpdateRotation();
+
+        //callOnMove?.Invoke();
     }
 
     public void ChangeDirection(Direction newDirection)
     {
-        gameObject.transform.eulerAngles = GetEulerAngles(movementDirection);
         movementDirection = newDirection;
+        callOnMove?.Invoke();
+        UpdateRotation();
     }
 
     public Direction GetDirection()
     {
         return movementDirection;
     }
+
     public Direction GetLastDirection()
     {
         return lastDirection;
     }
 
-    public static Vector3 GetEulerAngles(Direction direction)
+    public void UpdateRotation()
     {
-        return new Vector3(0, 0, 90 * ((int)direction));
+        int directionSums = (int)lastDirection - (int)movementDirection;
+        if(sprite != null)
+            sprite.flipY = directionSums == 1 || directionSums == -3;
+
+        gameObject.transform.eulerAngles = new Vector3(0, 0, 90 * ((int)lastDirection));
+    }
+
+    public static Vector3 GetEulerAnglesFromDirection(Direction currentDirection)
+    {
+        return new Vector3(0, 0, 90 * ((int)currentDirection));
+    }
+
+    //public static Vector3 GetEulerAnglesFromDirection(Direction currentDirection, Direction lastDirection)
+    //{
+    //    int directionSums = (int)lastDirection - (int)currentDirection;
+    //    Debug.Log(directionSums);
+
+    //    if (directionSums == 1 || directionSums == -3)
+    //        return new Vector3(0, 0, 90 * ((int)currentDirection) + 90);
+
+    //    return new Vector3(0, 0, 90 * ((int)currentDirection));
+    //}
+
+    public bool IsTurning()
+    {
+        return movementDirection != lastDirection;
     }
 
     public static Vector3 GetNextPosition(Vector3 currentPosition, Direction currentDirection)

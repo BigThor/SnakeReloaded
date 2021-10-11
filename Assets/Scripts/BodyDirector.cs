@@ -32,9 +32,9 @@ public class BodyDirector : MonoBehaviour
 
     private IEnumerator MoveBody()
     {
+        UpdateBodyDirection();
         yield return new WaitForSeconds(secondsBetweenMoves);
 
-        UpdateBodyDirection();
         for (int bodypartIndex = bodyparts.Count - 1; bodypartIndex >= 0; bodypartIndex--)
         {
             bodyparts[bodypartIndex].GetComponent<Movable>().Move();
@@ -62,7 +62,7 @@ public class BodyDirector : MonoBehaviour
         Movable.Direction oppositeDirection = Movable.GetOppositeDirection(lastDirection);
         Vector3 newPosition = Movable.GetNextPosition(lastPartPosition, oppositeDirection);
 
-        GameObject newBodyPart = Instantiate(bodyPrefab, newPosition, Quaternion.Euler(Movable.GetEulerAngles(oppositeDirection)));
+        GameObject newBodyPart = Instantiate(bodyPrefab, newPosition, Quaternion.Euler(Movable.GetEulerAnglesFromDirection(oppositeDirection)));
         bodyparts.Add(newBodyPart);
         newBodyPart.GetComponent<Movable>().ChangeDirection(lastDirection);
     }

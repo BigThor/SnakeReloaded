@@ -470,6 +470,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1461287617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 652316708540630768, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+  m_PrefabInstance: {fileID: 2553365131998652079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814e7e31404faa047a04f76ce76781a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502062931
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +954,18 @@ PrefabInstance:
       propertyPath: secondsBetweenMoves
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 652316708540630768, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: partHasMoved.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 652316708540630768, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: partHasMoved.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 652316708540630768, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: partHasMoved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5263778430529284477, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: m_Name
       value: Eye
@@ -966,6 +989,14 @@ PrefabInstance:
     - target: {fileID: 7057151654721260402, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: m_Name
       value: HeadSquare
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260403, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260403, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7057151654721260412, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: m_RootOrder
@@ -1012,7 +1043,43 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: lastDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: movementDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: callOnMove.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: callOnMove.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: callOnMove.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1461287617}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: callOnMove.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: callOnMove.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateTurning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: callOnMove.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TurningAnimationController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057151654721260413, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: callOnMove.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219530707361079318, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
+      propertyPath: initialSize
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8219530707361079318, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}

@@ -30,7 +30,7 @@ public class GoAroundOnEdge : MonoBehaviour
     {
         Vector2 newPosition = gameObject.transform.position;
 
-        Movable.Direction currentDirection = movable.GetDirection();
+        Movable.Direction currentDirection = movable.GetLastDirection();
         if(currentDirection == Movable.Direction.Right)
         {
             newPosition.x -= size.x;

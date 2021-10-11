@@ -16,8 +16,6 @@ public class EdgeSpawner : MonoBehaviour, ITypeSpawner
             var data = PositionRandomizer.GeneratePositionOfClearLine(areaToSpawn.transform);
             GameObject newObject = Instantiate(objectToSpawn, data.spawnPosition, Quaternion.identity);
             newObject.GetComponent<Movable>()?.ChangeDirection(data.direction);
-            Debug.Log(data.direction);
-            Debug.Log(data.spawnPosition);
         }
 
         yield return new WaitForSeconds(secondsBetweenSpawn);
