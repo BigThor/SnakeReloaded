@@ -13,10 +13,4 @@ public class PointsUpdater : MonoBehaviour
         textObject = GetComponent<Text>();
         textObject.text = "You got " + ScoreCounter.Score.ToString() + " point(s)!";
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

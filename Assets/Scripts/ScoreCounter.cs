@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class ScoreCounter : MonoBehaviour
 {
-
     private static int score = 0;
     public static int Score { get => score; }
     [SerializeField] private GameObject scoreText = null;
