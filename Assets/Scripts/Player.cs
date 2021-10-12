@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag.Equals("Player") || collision.gameObject.tag.Equals("Obstacle"))
+        if(collision.gameObject.tag.Equals("Player"))
         {
             Die();
         }
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         scoreCounter?.AddToScore(1);
     }
 
-    private void Die()
+    public void Die()
     {
         SceneManager.LoadScene("GameOver");
     }

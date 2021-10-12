@@ -14,11 +14,6 @@ public class TurningAnimationController : MonoBehaviour
         movable = GetComponent<Movable>();
     }
 
-    void Update()
-    {
-           
-    }
-
     public void UpdateTurning()
     {
         if(animator != null && movable != null)

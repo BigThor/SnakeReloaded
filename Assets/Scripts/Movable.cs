@@ -38,9 +38,7 @@ public class Movable : MonoBehaviour
         gameObject.transform.position = newPosition;
 
         lastDirection = movementDirection;
-        UpdateRotation();
 
-        //callOnMove?.Invoke();
     }
 
     public void ChangeDirection(Direction newDirection)
@@ -73,17 +71,6 @@ public class Movable : MonoBehaviour
     {
         return new Vector3(0, 0, 90 * ((int)currentDirection));
     }
-
-    //public static Vector3 GetEulerAnglesFromDirection(Direction currentDirection, Direction lastDirection)
-    //{
-    //    int directionSums = (int)lastDirection - (int)currentDirection;
-    //    Debug.Log(directionSums);
-
-    //    if (directionSums == 1 || directionSums == -3)
-    //        return new Vector3(0, 0, 90 * ((int)currentDirection) + 90);
-
-    //    return new Vector3(0, 0, 90 * ((int)currentDirection));
-    //}
 
     public bool IsTurning()
     {

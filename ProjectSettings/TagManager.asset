@@ -8,6 +8,7 @@ TagManager:
   - Eatable
   - Score
   - Obstacle
+  - KillZone
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Playground
+    uniqueID: 1941512379
+    locked: 0
+  - name: Eatable
+    uniqueID: 4273372335
+    locked: 0
+  - name: Player
+    uniqueID: 1440744843
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3668312431
     locked: 0

@@ -62,7 +62,7 @@ public class BodyDirector : MonoBehaviour
         Movable.Direction oppositeDirection = Movable.GetOppositeDirection(lastDirection);
         Vector3 newPosition = Movable.GetNextPosition(lastPartPosition, oppositeDirection);
 
-        GameObject newBodyPart = Instantiate(bodyPrefab, newPosition, Quaternion.Euler(Movable.GetEulerAnglesFromDirection(oppositeDirection)));
+        GameObject newBodyPart = Instantiate(bodyPrefab, newPosition, Quaternion.Euler(Movable.GetEulerAnglesFromDirection(oppositeDirection)), gameObject.transform.parent);
         bodyparts.Add(newBodyPart);
         newBodyPart.GetComponent<Movable>().ChangeDirection(lastDirection);
     }
@@ -78,5 +78,13 @@ public class BodyDirector : MonoBehaviour
 
         if (bodyparts.Count != 0)
             bodyparts[0].GetComponent<Movable>().ChangeDirection(movable.GetLastDirection());
+    }
+
+    void OnDestroy()
+    {
+        foreach(var bodypart in bodyparts)
+        {
+            Destroy(bodypart);
+        }
     }
 }
