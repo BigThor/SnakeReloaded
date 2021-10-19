@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSize: 2
   bodyPrefab: {fileID: 2578654764326136668, guid: 667e317f03f409149980bc0451f2312f, type: 3}
-  secondsBetweenMoves: 0.5
+  secondsBetweenMoves: 0.2
 --- !u!1001 &4771901160581734446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +131,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -53785575007964540, guid: 667e317f03f409149980bc0451f2312f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: -7888056789361743799}
     - target: {fileID: 2578654764326136658, guid: 667e317f03f409149980bc0451f2312f, type: 3}
       propertyPath: m_RootOrder
       value: 0

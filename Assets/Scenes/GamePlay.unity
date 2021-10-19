@@ -479,22 +479,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -37, y: -28}
-      - {x: -37, y: 28}
-      - {x: -36, y: 28}
-      - {x: -36, y: -28}
-    - - {x: 37, y: -28}
-      - {x: 37, y: 28}
-      - {x: 36, y: 28}
-      - {x: 36, y: -28}
-    - - {x: -36, y: 28}
-      - {x: -36, y: 29}
-      - {x: 36, y: 29}
-      - {x: 36, y: 28}
-    - - {x: -36, y: -28}
-      - {x: -36, y: -29}
-      - {x: 36, y: -29}
-      - {x: 36, y: -28}
+    - - {x: -37, y: -37}
+      - {x: -37, y: 37}
+      - {x: -36, y: 37}
+      - {x: -36, y: -37}
+    - - {x: 37, y: -37}
+      - {x: 37, y: 37}
+      - {x: 36, y: 37}
+      - {x: 36, y: -37}
+    - - {x: -36, y: 37}
+      - {x: -36, y: 38}
+      - {x: 36, y: 38}
+      - {x: 36, y: 37}
+    - - {x: -36, y: -37}
+      - {x: -36, y: -38}
+      - {x: 36, y: -38}
+      - {x: 36, y: -37}
 --- !u!114 &1461287617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 652316708540630768, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaToSpawn: {fileID: 1556626356}
   objectToSpawn: {fileID: 664101361283382388, guid: 02eb3cc3c32f7db4a9ca7b180706b914, type: 3}
-  secondsBetweenSpawn: 6
+  secondsBetweenSpawn: 12
 --- !u!114 &1502062933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,7 +1109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8219530707361079318, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
       propertyPath: secondsBetweenMoves
-      value: 0.15
+      value: 0.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e30599a0701b145b441dc99dbe6480, type: 3}
