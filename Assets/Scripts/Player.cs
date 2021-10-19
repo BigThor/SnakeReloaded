@@ -32,22 +32,28 @@ public class Player : MonoBehaviour
         float horizontalDirection = Input.GetAxis("Horizontal");
         float verticalDirection = Input.GetAxis("Vertical");
 
+
+        Movable.Direction? newDirection = null;
+
         if (horizontalDirection > 0)
         {
-            movable.ChangeDirection(Movable.Direction.Right);
+            newDirection = Movable.Direction.Right;
         }
         else if (horizontalDirection < 0)
         {
-            movable.ChangeDirection(Movable.Direction.Left);
+            newDirection = Movable.Direction.Left;
         }
         else if (verticalDirection > 0)
         {
-            movable.ChangeDirection(Movable.Direction.Up);
+            newDirection = Movable.Direction.Up;
         }
         else if (verticalDirection < 0)
         {
-            movable.ChangeDirection(Movable.Direction.Down);
+            newDirection = Movable.Direction.Down;
         }
+
+        if(newDirection != null && !movable.IsOppositeDirectionToCurrent((Movable.Direction)newDirection))
+            movable.ChangeDirection((Movable.Direction)newDirection);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

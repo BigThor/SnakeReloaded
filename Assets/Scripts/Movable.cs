@@ -58,6 +58,13 @@ public class Movable : MonoBehaviour
         return lastDirection;
     }
 
+    public bool IsOppositeDirectionToCurrent(Direction newDirection)
+    {
+        int isOppositeIfTwo = Mathf.Abs(movementDirection - newDirection);
+
+        return isOppositeIfTwo == 2;
+    }
+
     public void UpdateRotation()
     {
         int directionSums = (int)lastDirection - (int)movementDirection;
