@@ -824,7 +824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaToSpawn: {fileID: 1556626356}
   objectToSpawn: {fileID: 7716589459758076267, guid: d2d657344fdfbcc44957fa7624b24e85, type: 3}
-  secondsBetweenSpawn: 5
+  secondsBetweenSpawn: 4
 --- !u!1001 &2414468810072725983
 PrefabInstance:
   m_ObjectHideFlags: 0
