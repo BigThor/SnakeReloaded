@@ -1,4 +1,4 @@
-# SnakeReloaded
+# Snake Reloaded
 
 This is a personal project made in Unity.
 
