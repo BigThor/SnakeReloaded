@@ -6,9 +6,9 @@ Snake Reloaded is based on the snake game concept, with some twists added.
 
 ## Some important links
 
-**Gameplay video**: pending
+**Gameplay video**: https://youtu.be/AB1cL5b7Ihw
 
-**Itchio page to play the game**: pending
+**Itchio page to play the game**: https://big-thor.itch.io/snake-reloaded
 
 ## Game mechanics
 * Player is constantly moving in the direction that is facing.
